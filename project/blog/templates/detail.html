@@ -1,0 +1,7 @@
+<h1>{{blog.title}}</h1>  <!-- detail 함수에서 던져주는 blog는 Object이다. -->
+{{blog.created_at}}
+{{blog.click}}
+<br />
+<p>{{blog.title}}</p>
+<a href = "{%url 'home' %}">집으로</a>
+<a href = "{%url 'edit' blog.id %}">글 수정하기</a>

@@ -1,0 +1,27 @@
+{% load static %}
+
+<h1>LikeLion 10th Blog Project</h1>
+<br />
+<img
+src="{% static 'damgom.png' %} "
+width = "100"
+height="100"
+class="logo"
+/>
+<br />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<a href="{% url 'new'%}">새 글 작성하기</a> <!-- 추가 -->
+{% for blog in blogs %}  <!-- home 함수에서 던져주는 blogs 는 QuerySet이다. -->
+
+<div>
+  <a href="{%url 'detail' blog.id %}">
+    
+    <h5>{{blog.title}}</h5>  <!--blog는 object이다 -->
+    {{blog.created_at}} <br/>
+    {{blog.update_counter}}
+    <h2>조회수: {{blog.hits}}</h2>
+    <p>{{blog.summary}}</p>
+  </a>
+</div>
+<br />
+{% endfor %}
